@@ -63,13 +63,18 @@ Cras fringilla neque felis, at feugiat ipsum euismod ut. Nunc volutpat vel odio 
 Fusce accumsan finibus nisi, sit amet interdum urna dapibus vel. Nulla sed justo at purus condimentum auctor a ut turpis. Aenean non ipsum at nulla placerat blandit congue quis quam. Aliquam pulvinar lacus in diam efficitur, in sagittis nulla aliquet. Morbi ac mi vitae eros dignissim lacinia. Phasellus vitae lacinia nunc. Donec augue dui, volutpat eget sem at, porta porta dui. Donec luctus nisi non enim sagittis, nec viverra tortor semper. Nullam non ullamcorper sem, vel fermentum est.
         </p>
     </div>
-    <script>
-     
-      
-      // TO DO il reste la reflexion autour de la persistance de la donnée et travailler la partie CSS
-      
-    </script>
-  <!--
+    <script type="module">
+  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.0/dist/web.js'
+
+  Typebot.initBubble({
+    typebot: "fondation-4c68pm3",
+    theme: {
+      button: { backgroundColor: "#005596ff" },
+      chatWindow: { backgroundColor: "#ffffff" },
+    },
+  });
+</script>
+<!--
   This script places a badge on your repl's full-browser view back to your repl's cover
   page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
   teal, blue, blurple, magenta, pink!

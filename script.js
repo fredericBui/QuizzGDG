@@ -19,19 +19,48 @@ const Easy = new Quizz(
   ],
   [
     [
-      ["Q1 - Réponse 1", true],
-      ["Q1 - Réponse 2", false],
-      ["Q1 - Réponse 3", false]
+      ["Q1 Easy - Réponse 1", true],
+      ["Q1 Easy - Réponse 2", false],
+      ["Q1 Easy - Réponse 3", false]
     ],
     [
-      ["Q2 - Réponse 1", false],
-      ["Q2 - Réponse 2", true],
-      ["Q2 - Réponse 3", false]
+      ["Q2 Easy - Réponse 1", false],
+      ["Q2 Easy - Réponse 2", true],
+      ["Q2 Easy - Réponse 3", false]
     ],
     [
-      ["Q3 - Réponse 1", false],
-      ["Q3 - Réponse 2", true],
-      ["Q3 - Réponse 3", false]
+      ["Q3 Easy - Réponse 1", false],
+      ["Q3 Easy - Réponse 2", true],
+      ["Q3 Easy - Réponse 3", false]
+    ]
+  ],
+  [
+    "Q1 - help",
+    "Q2 - help"
+  ]
+);
+
+const Hard = new Quizz(
+  [
+    "Question 1",
+    "Question 2",
+    "Question 3"
+  ],
+  [
+    [
+      ["Q1 Expert - Réponse 1", true],
+      ["Q1 Expert - Réponse 2", false],
+      ["Q1 Expert - Réponse 3", false]
+    ],
+    [
+      ["Q2 Expert - Réponse 1", true],
+      ["Q2 Expert - Réponse 2", false],
+      ["Q2 Expert - Réponse 3", false]
+    ],
+    [
+      ["Q3 Expert - Réponse 1", false],
+      ["Q3 Expert - Réponse 2", false],
+      ["Q3 Expert - Réponse 3", false]
     ]
   ],
   [
@@ -64,13 +93,37 @@ function startQuizz() {
 
   startButton.onclick = function() {
     document.getElementById("start_div").style.display = "none"
-    displayQuizz(Easy)
+    displayLevel()
   }
 
   startButton2.onclick = function() {
     document.getElementById("quizz_box").style.display = "none"
   }
 
+}
+
+function displayLevel() {
+  const divLevelAnswers = document.createElement("div")
+  const divLevelButton = document.createElement("button")
+  const divLevelButton2 = document.createElement("button")
+
+  divQuizz.appendChild(divLevelAnswers)
+  divLevelAnswers.appendChild(divLevelButton)
+  divLevelAnswers.appendChild(divLevelButton2)
+  divLevelAnswers.setAttribute("id", "levels");
+
+  divLevelButton.innerHTML = "Novice"
+  divLevelButton2.innerHTML = "Expert"
+
+  divLevelButton.onclick = function() {
+    document.getElementById("levels").style.display = "none"
+    displayQuizz(Easy)
+  }
+
+  divLevelButton2.onclick = function() {
+    document.getElementById("levels").style.display = "none"
+    displayQuizz(Hard)
+  }
 }
 
 function displayQuizz(Quizz) {
@@ -142,20 +195,20 @@ function checkScore() {
   const space = document.createElement("br")
   const restartLink = document.createElement("a")
   restartLink.innerHTML = "Recommencer"
-  restartLink.href = "https://quizzgdc.fredericbui1.repl.co"
+  restartLink.href = "/"
 
   if (Score < Easy.question.length * (1 / 3)) {
     displayScore()
     scoreLink.innerHTML = "Slide to target 1"
-    scoreLink.href = "https://quizzgdc.fredericbui1.repl.co#target1"
+    scoreLink.href = "/#target1"
   } else if (Score < Easy.question.length * (1 / 2)) {
     displayScore()
     scoreLink.innerHTML = "Slide to target 2"
-    scoreLink.href = "https://quizzgdc.fredericbui1.repl.co#target2"
+    scoreLink.href = "/#target2"
   } else {
     displayScore()
     scoreLink.innerHTML = "Slide to target 3"
-    scoreLink.href = "https://quizzgdc.fredericbui1.repl.co#target3"
+    scoreLink.href = "/#target3"
   }
   divQuizz.appendChild(scoreLink)
   divQuizz.appendChild(space)
