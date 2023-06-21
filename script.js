@@ -173,4 +173,3 @@ function displayScore() {
 }
 
 startQuizz()
-//to do display none le quizz une fois l'action réalisé-
